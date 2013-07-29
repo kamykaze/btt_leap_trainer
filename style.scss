@@ -1,0 +1,95 @@
+$border_style: 1px solid #ccc;
+
+body {
+  font-size: 13pt;
+  font-family: Helvetica, Verdana, Arial, sans-serif;
+}
+section {
+  float: left;
+}
+.training {
+  .work {
+    width: 100%;
+  }
+  .lesson_data {
+    display: block;
+    border: $border_style;
+    position:relative;
+    padding: 10px;
+    height: 50px;
+    width: 600px;
+    margin: 0 auto;
+    font-size:2em;
+    overflow:hidden;
+    &.idle .container {
+      opacity:0;
+    }
+    .paused {
+      display:none;
+      position:absolute;
+      left: 0;
+      top:0;
+      padding:10px;
+      text-align:center;
+      height:50px;
+      line-height:50px;
+      width:100%;
+    }
+    &.idle .paused {
+      display:block;
+    }
+    .container {
+      width:9999px;
+      position:relative;
+    }
+    .gesture {
+      margin-right:20px;
+      float:left;
+        border-bottom:1px solid transparent;
+      &.active {
+        border-bottom:1px solid #777;
+        background:#EEE;
+      }
+      &.correct {
+        color: #009900;
+      }
+      &.incorrect {
+        color: #990000;
+      }
+    }
+  }
+  .work_data{
+    display: block;
+    border: $border_style;
+    padding: 10px;
+    height: 50px;
+    width: 200px;
+    margin: 10px auto;
+    text-align:center;
+    font-size:2em;
+  }
+  .stats {
+    label {
+      margin-right:10px;
+    }
+  }
+}
+#legend {
+  &.collapsed {
+    height: 20px;
+    overflow: hidden;
+  }
+  .title {
+    cursor: pointer;
+    margin:0;
+  }
+  .column {
+    float: left;
+    width: 30%;
+    margin-right: 5%;
+  }
+  .column_last {
+    margin-right: 0;
+  }
+}
+

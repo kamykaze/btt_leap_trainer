@@ -1,0 +1,73 @@
+body {
+  font-size: 13pt;
+  font-family: Helvetica, Verdana, Arial, sans-serif; }
+
+section {
+  float: left; }
+
+.training .work {
+  width: 100%; }
+.training .lesson_data {
+  display: block;
+  border: 1px solid #cccccc;
+  position: relative;
+  padding: 10px;
+  height: 50px;
+  width: 600px;
+  margin: 0 auto;
+  font-size: 2em;
+  overflow: hidden; }
+  .training .lesson_data.idle .container {
+    opacity: 0; }
+  .training .lesson_data .paused {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 10px;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    width: 100%; }
+  .training .lesson_data.idle .paused {
+    display: block; }
+  .training .lesson_data .container {
+    width: 9999px;
+    position: relative; }
+  .training .lesson_data .gesture {
+    margin-right: 20px;
+    float: left;
+    border-bottom: 1px solid transparent; }
+    .training .lesson_data .gesture.active {
+      border-bottom: 1px solid #777;
+      background: #EEE; }
+    .training .lesson_data .gesture.correct {
+      color: #009900; }
+    .training .lesson_data .gesture.incorrect {
+      color: #990000; }
+.training .work_data {
+  display: block;
+  border: 1px solid #cccccc;
+  padding: 10px;
+  height: 50px;
+  width: 200px;
+  margin: 10px auto;
+  text-align: center;
+  font-size: 2em; }
+.training .stats label {
+  margin-right: 10px; }
+
+#legend.collapsed {
+  height: 20px;
+  overflow: hidden; }
+#legend .title {
+  cursor: pointer;
+  margin: 0; }
+#legend .column {
+  float: left;
+  width: 30%;
+  margin-right: 5%; }
+#legend .column_last {
+  margin-right: 0; }
+
+/*# sourceMappingURL=style.css.map */

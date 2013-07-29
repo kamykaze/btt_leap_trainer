@@ -1,0 +1,87 @@
+<html>
+  <head>
+    <title>BetterTouchTool Leap Gesture Training</title>
+    <style type="text/css"></style>
+    <link rel="stylesheet" href="style.css" />
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  </head>
+  <body>
+    <h1>Leap Gesture Training for BetterTouchTool</h1>
+    <section id="legend" class="collapsed">
+      <h5 class="title">Gesture Notations (click to show/hide)</h5>
+<pre class="column">
+U - Single Finger Up
+D - Single Finger Down
+L - Single Finger Left
+R - Single Finger Right
+</pre>
+<pre class="column">
+2U - Two Fingers Up
+2D - Two Fingers Down
+2L - Two Fingers Left
+2R - Two Fingers Right
+</pre>
+<pre class="column column_last">
+3U - Three Fingers Up
+3D - Three Fingers Down
+3L - Three Fingers Left
+3R - Three Fingers Right
+</pre>
+<pre class="column">
+5U - Five Fingers Up
+5D - Five Fingers Down
+5L - Five Fingers Left
+5R - Five Fingers Right
+</pre>
+<pre class="column">
+CW  - Single Finger Small Circle (Clockwise)
+CCW - Single Finger Small Circle (Counter Clockwise)
+2CW  - Two Fingers Small Circle (Clockwise)
+2CCW - Two Fingers Small Circle (Counter Clockwise)
+</pre>
+<pre class="column column_last">
+T   - Single Finger Tap
+2T  - Two Fingers Tap
+3T  - Three Fingers Tap
+5T  - Five Fingers Tap
+CLP - Two Hand Clap
+</pre>
+    </section>
+    <section class="training" id="test_lesson">
+      <div class="lesson">
+        <h2>Click the work box below then start doing gestures to check your accuracy</h2>
+        <h3>Lesson Gestures:</h3>
+        <div class="lesson_data idle"></div>
+      </div>
+      <div class="work">
+        <h3>Your Gestures:</h3>
+        <input class="work_data" type="text" />
+      </div>
+      <div class="stats">
+        <div class="correct"><label>Correct:</label><span class="data">0</span></div>
+        <div class="incorrect"><label>Incorrect:</label><span class="data">0</span></div>
+        <div class="accuracy"><label>Accuracy:</label><span class="data"></span></div>
+      </div>
+    </section>
+    
+    <script type="text/javascript" src="training.js"></script>
+    <script type="text/javascript">
+
+      $(function(){
+        $('#legend .title').click(function(){
+          var $div = $(this).parent('#legend');
+
+          if ($div.hasClass('collapsed')){
+            $div.removeClass('collapsed');
+          }
+          else {
+            $div.addClass('collapsed');
+          }
+        });
+
+        bttlearn = $('.training').BttLeapTraining();
+      });
+    </script>
+  </body>
+</html>
