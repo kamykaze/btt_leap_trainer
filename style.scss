@@ -15,9 +15,8 @@ section {
     display: block;
     border: $border_style;
     position:relative;
-    padding: 10px;
-    height: 50px;
-    width: 600px;
+    height: 70px;
+    width: 300px;
     margin: 0 auto;
     font-size:2em;
     overflow:hidden;
@@ -41,13 +40,16 @@ section {
     .container {
       width:9999px;
       position:relative;
+      height: 50px;
+      padding:10px;
     }
     .gesture {
       margin-right:20px;
       float:left;
-        border-bottom:1px solid transparent;
+      text-align:center;
+      padding:5px 10px;
+      border-radius:15px;
       &.active {
-        border-bottom:1px solid #777;
         background:#EEE;
       }
       &.correct {

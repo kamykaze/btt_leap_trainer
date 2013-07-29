@@ -13,14 +13,15 @@
               'T', '2T', '3T', '5T',
               'CLP'
             ],
-            number_of_gestures: 20,   // number of gestures to be generated in the lesson
+            number_of_gestures: 50,   // number of gestures to be generated in the lesson
             lesson: '.lesson_data',   // lesson data container
             work: '.work_data',       // work data container (must be an input field)
             stats: '.stats'           // stats data container
         }, options );
 
-        var $cont = $(this);
-        var training = this;
+        var trainer = this;
+        var $trainer = $(trainer);
+        this.current_gesture = 0;
         this.correct = 0;
         this.incorrect = 0;
         this.total = 0;
@@ -39,23 +40,23 @@
           };
           result += '</div><div class="paused">Paused</div>';
 
-          $cont.find(settings.lesson).html(result);
-          $cont.find(settings.lesson).find('.gesture').first().addClass('active');
+          $trainer.find(settings.lesson).html(result);
+          $trainer.find(settings.lesson).find('.gesture').first().addClass('active');
         }
 
         this.playLesson = function() {
-          $cont.find(settings.lesson).removeClass('idle');
+          $trainer.find(settings.lesson).removeClass('idle');
         }
 
         this.pauseLesson = function() {
-          $cont.find(settings.lesson).addClass('idle');
+          $trainer.find(settings.lesson).addClass('idle');
         }
 
         this.checkAnswer = function(e) {
           var $work = $(this);
           var $answer = $(this).val();
           var code = (e.keyCode ? e.keyCode : e.which);
-          var $cur_gesture = $cont.find(settings.lesson).find('.gesture.active').eq(0);
+          var $cur_gesture = $trainer.find(settings.lesson).find('.gesture.active').eq(0);
           var $next_gesture = $cur_gesture.next();
 
           if(String.fromCharCode(code) !== ' ') {
@@ -66,46 +67,48 @@
             $cur_gesture.removeClass('active');;
             if ($answer.trim(' ') == $cur_gesture.html()) {
               $cur_gesture.addClass('correct')
-              training.correct++;
-              training.total++;
+              trainer.correct++;
+              trainer.total++;
             }
             else {
               $cur_gesture.addClass('incorrect')
-              training.incorrect++;
-              training.total++;
+              trainer.incorrect++;
+              trainer.total++;
             }
             $work.val('');
           }
-          training.updateLesson();
-          training.updateStats();
+          trainer.updateLesson();
+          trainer.updateStats();
         }
 
         this.updateLesson = function () {
-          var $cur_gesture = $cont.find(settings.lesson).find('.gesture.active').eq(0);
-          var $next_gesture = $cur_gesture.next();
-          var offset = $next_gesture.offset().left - $next_gesture.offsetParent().offset().left;
-          $cont.find(settings.lesson + ' .container').css('margin-left', $cont.width()/2 + (-1*offset));
+          var $cont = $trainer.find(settings.lesson);
+          var $cur_gesture = $trainer.find(settings.lesson).find('.gesture.active').eq(0);
+          var offset;
+          if ($cur_gesture.length) {
+            offset = $cur_gesture.offset().left - $cur_gesture.offsetParent().offset().left;
+            $trainer.find(settings.lesson + ' .container').css('margin-left', $cont.outerWidth()/2 - ($cur_gesture.outerWidth()/2) + (-1*offset));
+          }
         }
 
         this.updateStats = function () {
-          var $correct = $cont.find(settings.stats + ' .correct');
-          var $incorrect = $cont.find(settings.stats + ' .incorrect');
-          var $accuracy = $cont.find(settings.stats + ' .accuracy');
-          console.log(training.correct, training.incorrect, training.correct/training.total);
+          var $correct = $trainer.find(settings.stats + ' .correct');
+          var $incorrect = $trainer.find(settings.stats + ' .incorrect');
+          var $accuracy = $trainer.find(settings.stats + ' .accuracy');
 
-          $correct.find('.data').html(training.correct);
-          $incorrect.find('.data').html(training.incorrect);
-          $accuracy.find('.data').html(Math.round(100*training.correct/training.total)+'%');
+          $correct.find('.data').html(trainer.correct);
+          $incorrect.find('.data').html(trainer.incorrect);
+          $accuracy.find('.data').html(Math.round(100*trainer.correct/trainer.total)+'%');
         }
 
         // initialization
         this.init = function () {
-          this.getLesson(settings.number_of_gestures);
-          this.updateLesson();
+          trainer.getLesson(settings.number_of_gestures);
+          trainer.updateLesson();
 
-          $cont.find(settings.work).on('focus', this.playLesson);
-          $cont.find(settings.work).on('blur', this.pauseLesson);
-          $cont.find(settings.work).on('keyup', this.checkAnswer);
+          $trainer.find(settings.work).on('focus', trainer.playLesson);
+          $trainer.find(settings.work).on('blur', trainer.pauseLesson);
+          $trainer.find(settings.work).on('keyup', trainer.checkAnswer);
         }
 
         this.init();

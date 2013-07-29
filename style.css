@@ -11,9 +11,8 @@ section {
   display: block;
   border: 1px solid #cccccc;
   position: relative;
-  padding: 10px;
-  height: 50px;
-  width: 600px;
+  height: 70px;
+  width: 300px;
   margin: 0 auto;
   font-size: 2em;
   overflow: hidden; }
@@ -33,13 +32,16 @@ section {
     display: block; }
   .training .lesson_data .container {
     width: 9999px;
-    position: relative; }
+    position: relative;
+    height: 50px;
+    padding: 10px; }
   .training .lesson_data .gesture {
     margin-right: 20px;
     float: left;
-    border-bottom: 1px solid transparent; }
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 15px; }
     .training .lesson_data .gesture.active {
-      border-bottom: 1px solid #777;
       background: #EEE; }
     .training .lesson_data .gesture.correct {
       color: #009900; }
