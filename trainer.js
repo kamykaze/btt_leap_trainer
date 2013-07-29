@@ -1,6 +1,6 @@
 (function ( $ ) {
  
-    $.fn.BttLeapTraining = function( options ) {
+    $.fn.BttLeapTrainer = function( options ) {
  
         // default options
         var settings = $.extend({

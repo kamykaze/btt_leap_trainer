@@ -1,24 +1,25 @@
 body {
   font-size: 13pt;
-  font-family: Helvetica, Verdana, Arial, sans-serif; }
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #333; }
 
 section {
   float: left; }
 
-.training .work {
+.trainer .work {
   width: 100%; }
-.training .lesson_data {
+.trainer .lesson_data {
   display: block;
   border: 1px solid #cccccc;
   position: relative;
   height: 70px;
-  width: 300px;
+  width: 800px;
   margin: 0 auto;
   font-size: 2em;
   overflow: hidden; }
-  .training .lesson_data.idle .container {
+  .trainer .lesson_data.idle .container {
     opacity: 0; }
-  .training .lesson_data .paused {
+  .trainer .lesson_data .paused {
     display: none;
     position: absolute;
     left: 0;
@@ -28,26 +29,26 @@ section {
     height: 50px;
     line-height: 50px;
     width: 100%; }
-  .training .lesson_data.idle .paused {
+  .trainer .lesson_data.idle .paused {
     display: block; }
-  .training .lesson_data .container {
+  .trainer .lesson_data .container {
     width: 9999px;
     position: relative;
     height: 50px;
     padding: 10px; }
-  .training .lesson_data .gesture {
+  .trainer .lesson_data .gesture {
     margin-right: 20px;
     float: left;
     text-align: center;
     padding: 5px 10px;
     border-radius: 15px; }
-    .training .lesson_data .gesture.active {
+    .trainer .lesson_data .gesture.active {
       background: #EEE; }
-    .training .lesson_data .gesture.correct {
+    .trainer .lesson_data .gesture.correct {
       color: #009900; }
-    .training .lesson_data .gesture.incorrect {
+    .trainer .lesson_data .gesture.incorrect {
       color: #990000; }
-.training .work_data {
+.trainer .work_data {
   display: block;
   border: 1px solid #cccccc;
   padding: 10px;
@@ -56,7 +57,7 @@ section {
   margin: 10px auto;
   text-align: center;
   font-size: 2em; }
-.training .stats label {
+.trainer .stats label {
   margin-right: 10px; }
 
 #legend.collapsed {
@@ -64,11 +65,25 @@ section {
   overflow: hidden; }
 #legend .title {
   cursor: pointer;
-  margin: 0; }
+  margin: 0 0 10px 0; }
 #legend .column {
   float: left;
   width: 30%;
-  margin-right: 5%; }
+  margin-right: 5%;
+  margin-bottom: 1em;
+  font-size: 12pt;
+  line-height: 35px; }
+  #legend .column .notation {
+    display: inline-block;
+    width: 50px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    border: 1px solid #ddd;
+    background: #f0f0f0;
+    margin-right: 10px;
+    padding: 5px;
+    border-radius: 3px; }
 #legend .column_last {
   margin-right: 0; }
 
