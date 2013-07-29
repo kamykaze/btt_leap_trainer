@@ -38,7 +38,7 @@
           for (var i = 0; i < n; i++) {
             result += '<span class="gesture">'+ this.randomGesture() + "</span>";
           };
-          result += '</div><div class="paused">Paused</div>';
+          result += '</div><div class="paused">Paused (click box below to reactivate)</div>';
 
           $trainer.find(settings.lesson).html(result);
           $trainer.find(settings.lesson).find('.gesture').first().addClass('active');

@@ -28,7 +28,8 @@ section {
     text-align: center;
     height: 50px;
     line-height: 50px;
-    width: 100%; }
+    width: 100%;
+    font-size: 0.8em; }
   .trainer .lesson_data.idle .paused {
     display: block; }
   .trainer .lesson_data .container {
@@ -79,7 +80,7 @@ section {
     height: 20px;
     line-height: 20px;
     text-align: center;
-    border: 1px solid #ddd;
+    border: 1px solid #cccccc;
     background: #f0f0f0;
     margin-right: 10px;
     padding: 5px;
