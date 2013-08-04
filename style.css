@@ -1,7 +1,8 @@
 body {
   font-size: 13pt;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #333; }
+  color: #333;
+  background: #eee; }
 
 section {
   float: left; }
@@ -12,6 +13,7 @@ section {
 .trainer .work_history {
   display: block;
   border: 1px solid #cccccc;
+  background: #f5f5f5;
   position: relative;
   height: 70px;
   width: 800px;
@@ -68,8 +70,10 @@ section {
   margin: 10px auto;
   text-align: center;
   font-size: 2em; }
-.trainer .stats label {
-  margin-right: 10px; }
+.trainer .stats {
+  float: right; }
+  .trainer .stats label {
+    margin-right: 10px; }
 
 #legend.collapsed {
   height: 20px;

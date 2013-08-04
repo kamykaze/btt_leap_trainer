@@ -7,83 +7,87 @@
     <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
   </head>
   <body>
-    <h1>Leap Gesture Trainer for BetterTouchTool</h1>
-    <p>If you haven't already, download this <a href="btt_leap_preset">BTT preset</a> file and import it in your BTT settings window. </p>
-    <section id="legend" class="collapsed">
-      <h5 class="title">Gesture Notations (click to show/hide)</h5>
-      <div class="column">
-      <span class="notation">U</span>Single Finger Up<br />
-      <span class="notation">D</span>Single Finger Down<br />
-      <span class="notation">L</span>Single Finger Left<br />
-      <span class="notation">R</span>Single Finger Right<br />
-      </div>
-      <div class="column">
-      <span class="notation">2U</span>Two Fingers Up<br />
-      <span class="notation">2D</span>Two Fingers Down<br />
-      <span class="notation">2L</span>Two Fingers Left<br />
-      <span class="notation">2R</span>Two Fingers Right<br />
-      </div>
-      <div class="column column_last">
-      <span class="notation">3U</span>Three Fingers Up<br />
-      <span class="notation">3D</span>Three Fingers Down<br />
-      <span class="notation">3L</span>Three Fingers Left<br />
-      <span class="notation">3R</span>Three Fingers Right<br />
-      </div>
-      <div class="column">
-      <span class="notation">5U</span>Five Fingers Up<br />
-      <span class="notation">5D</span>Five Fingers Down<br />
-      <span class="notation">5L</span>Five Fingers Left<br />
-      <span class="notation">5R</span>Five Fingers Right<br />
-      </div>
-      <div class="column">
-      <span class="notation">CW</span>Single Finger Small Circle (Clockwise)<br />
-      <span class="notation">CCW</span>Single Finger Small Circle (Counter Clockwise)<br />
-      <span class="notation">2CW</span>Two Fingers Small Circle (Clockwise)<br />
-      <span class="notation">2CCW</span>Two Fingers Small Circle (Counter Clockwise)<br />
-      </div>
-      <div class="column column_last">
-      <span class="notation">T</span>Single Finger Tap<br />
-      <span class="notation">2T</span>Two Fingers Tap<br />
-      <span class="notation">3T</span>Three Fingers Tap<br />
-      <span class="notation">5T</span>Five Fingers Tap<br />
-      <span class="notation">CLP</span>Two Hand Clap<br />
-      </div>
+  <div id="wrapper">
+    <div id="content">
+      <h1>Leap Gesture Trainer for BetterTouchTool</h1>
+      <p>If you haven't already, download this <a href="btt_leap_preset">BTT preset</a> file and import it in your BTT settings window. </p>
+      <section id="legend" class="collapsed">
+        <h5 class="title">Gesture Notations (click to show/hide)</h5>
+        <div class="column">
+        <span class="notation">U</span>Single Finger Up<br />
+        <span class="notation">D</span>Single Finger Down<br />
+        <span class="notation">L</span>Single Finger Left<br />
+        <span class="notation">R</span>Single Finger Right<br />
+        </div>
+        <div class="column">
+        <span class="notation">2U</span>Two Fingers Up<br />
+        <span class="notation">2D</span>Two Fingers Down<br />
+        <span class="notation">2L</span>Two Fingers Left<br />
+        <span class="notation">2R</span>Two Fingers Right<br />
+        </div>
+        <div class="column column_last">
+        <span class="notation">3U</span>Three Fingers Up<br />
+        <span class="notation">3D</span>Three Fingers Down<br />
+        <span class="notation">3L</span>Three Fingers Left<br />
+        <span class="notation">3R</span>Three Fingers Right<br />
+        </div>
+        <div class="column">
+        <span class="notation">5U</span>Five Fingers Up<br />
+        <span class="notation">5D</span>Five Fingers Down<br />
+        <span class="notation">5L</span>Five Fingers Left<br />
+        <span class="notation">5R</span>Five Fingers Right<br />
+        </div>
+        <div class="column">
+        <span class="notation">CW</span>Single Finger Small Circle (Clockwise)<br />
+        <span class="notation">CCW</span>Single Finger Small Circle (Counter Clockwise)<br />
+        <span class="notation">2CW</span>Two Fingers Small Circle (Clockwise)<br />
+        <span class="notation">2CCW</span>Two Fingers Small Circle (Counter Clockwise)<br />
+        </div>
+        <div class="column column_last">
+        <span class="notation">T</span>Single Finger Tap<br />
+        <span class="notation">2T</span>Two Fingers Tap<br />
+        <span class="notation">3T</span>Three Fingers Tap<br />
+        <span class="notation">5T</span>Five Fingers Tap<br />
+        <span class="notation">CLP</span>Two Hand Clap<br />
+        </div>
+      </section>
+      <section class="trainer" id="test_lesson">
+        <div class="stats">
+          <div class="correct"><label>Correct:</label><span class="data">0</span></div>
+          <div class="incorrect"><label>Incorrect:</label><span class="data">0</span></div>
+          <div class="accuracy"><label>Accuracy:</label><span class="data"></span></div>
+        </div>
+        <div class="lesson">
+          <h2>Click the work box below then start doing gestures to check your accuracy</h2>
+          <h3>Lesson Gestures:</h3>
+          <div class="lesson_data"></div>
+        </div>
+        <div class="work">
+          <h3>Your Gestures:</h3>
+          <div class="work_history"></div>
+          <!-- <input class="work_data" type="text" />-->
+        </div>
     </section>
-    <section class="trainer" id="test_lesson">
-      <div class="lesson">
-        <h2>Click the work box below then start doing gestures to check your accuracy</h2>
-        <h3>Lesson Gestures:</h3>
-        <div class="lesson_data idle"></div>
-      </div>
-      <div class="work">
-        <h3>Your Gestures:</h3>
-        <div class="work_history"></div>
-        <input class="work_data" type="text" />
-      </div>
-      <div class="stats">
-        <div class="correct"><label>Correct:</label><span class="data">0</span></div>
-        <div class="incorrect"><label>Incorrect:</label><span class="data">0</span></div>
-        <div class="accuracy"><label>Accuracy:</label><span class="data"></span></div>
-      </div>
-    </section>
+    </div>
+  </div>
     
-    <script type="text/javascript" src="trainer.js"></script>
-    <script type="text/javascript">
+  <script type="text/javascript" src="trainer.js"></script>
+  <script type="text/javascript">
 
-      $(function(){
-        $('#legend .title').click(function(){
-          var $div = $(this).parent('#legend');
+    $(function(){
+      $('#legend .title').click(function(){
+        var $div = $(this).parent('#legend');
 
-          if ($div.hasClass('collapsed')){
-            $div.removeClass('collapsed');
-          }
-          else {
-            $div.addClass('collapsed');
-          }
-        });
-
-        bttlearn = $('.trainer').BttLeapTrainer();
+        if ($div.hasClass('collapsed')){
+          $div.removeClass('collapsed');
+        }
+        else {
+          $div.addClass('collapsed');
+        }
       });
-    </script>
+
+      bttlearn = $('.trainer').BttLeapTrainer();
+    });
+  </script>
   </body>
 </html>

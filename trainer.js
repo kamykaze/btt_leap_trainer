@@ -15,7 +15,7 @@
             ],
             number_of_gestures: 50,   // number of gestures to be generated in the lesson
             lesson: '.lesson_data',   // lesson data container
-            work: '.work_data',       // work data container (must be an input field)
+            //work: '.work_data',       // work data container (must be an input field)
             work_history: '.work_history',       // work data container (must be an input field)
             stats: '.stats'           // stats data container
         }, options );
@@ -56,19 +56,22 @@
         }
 
         this.checkAnswer = function(e) {
-          var $work = $(this);
-          var $answer = $(this).val();
+          var $doc = $(this);
+          var $answer = $(this).data('gesture') ? $(this).data('gesture') : '';
           var code = (e.keyCode ? e.keyCode : e.which);
           var $cur_gesture = $trainer.find(settings.lesson).find('.gesture.active').eq(0);
           var $next_gesture = $cur_gesture.next();
 
           if(String.fromCharCode(code) !== ' ') {
+            $doc.data('gesture', $answer += String.fromCharCode(code));
             return;
           }
           else {
             $next_gesture.addClass('active');
             $cur_gesture.removeClass('active');;
-            if ($answer.trim(' ') == $cur_gesture.html()) {
+            console.log($answer, $cur_gesture.html());
+            console.log(typeof($answer), typeof($cur_gesture.html()));
+            if ($answer === $cur_gesture.html()) {
               $cur_gesture.addClass('correct')
               trainer.correct++;
               trainer.total++;
@@ -79,7 +82,7 @@
               trainer.total++;
             }
             $trainer.find(settings.work_history + ' .container').append('<span class="gesture">'+$answer.trim(' ')+'</span>');
-            $work.val('');
+            $doc.data('gesture','');
           }
           trainer.updateLesson();
           trainer.updateStats();
@@ -111,9 +114,11 @@
           trainer.getLesson(settings.number_of_gestures);
           trainer.updateLesson();
 
-          $trainer.find(settings.work).on('focus', trainer.playLesson);
-          $trainer.find(settings.work).on('blur', trainer.pauseLesson);
-          $trainer.find(settings.work).on('keyup', trainer.checkAnswer);
+          // TODO: add resume/pause button
+          //$trainer.find(settings.work).on('focus', trainer.playLesson);
+          //$trainer.find(settings.work).on('blur', trainer.pauseLesson);
+          //$trainer.find(settings.work).on('keyup', trainer.checkAnswer);
+          $(document).on('keypress', trainer.checkAnswer);
         }
 
         this.init();
