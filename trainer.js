@@ -16,6 +16,7 @@
             number_of_gestures: 50,   // number of gestures to be generated in the lesson
             lesson: '.lesson_data',   // lesson data container
             work: '.work_data',       // work data container (must be an input field)
+            work_history: '.work_history',       // work data container (must be an input field)
             stats: '.stats'           // stats data container
         }, options );
 
@@ -42,6 +43,8 @@
 
           $trainer.find(settings.lesson).html(result);
           $trainer.find(settings.lesson).find('.gesture').first().addClass('active');
+
+          $trainer.find(settings.work_history).html('<div class="container"></div>');
         }
 
         this.playLesson = function() {
@@ -75,6 +78,7 @@
               trainer.incorrect++;
               trainer.total++;
             }
+            $trainer.find(settings.work_history + ' .container').append('<span class="gesture">'+$answer.trim(' ')+'</span>');
             $work.val('');
           }
           trainer.updateLesson();
@@ -88,6 +92,7 @@
           if ($cur_gesture.length) {
             offset = $cur_gesture.offset().left - $cur_gesture.offsetParent().offset().left;
             $trainer.find(settings.lesson + ' .container').css('margin-left', $cont.outerWidth()/2 - ($cur_gesture.outerWidth()/2) + (-1*offset));
+            $trainer.find(settings.work_history + ' .container').css('margin-left', $cont.outerWidth()/2 - ($cur_gesture.outerWidth()/2) + (-1*offset));
           }
         }
 

@@ -12,7 +12,8 @@ section {
   .work {
     width: 100%;
   }
-  .lesson_data {
+  .lesson_data,
+  .work_history {
     display: block;
     border: $border_style;
     position:relative;
@@ -50,6 +51,7 @@ section {
       float:left;
       text-align:center;
       padding:5px 10px;
+      width:100px;
       border-radius:15px;
       &.active {
         background:#EEE;

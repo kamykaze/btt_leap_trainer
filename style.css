@@ -8,7 +8,8 @@ section {
 
 .trainer .work {
   width: 100%; }
-.trainer .lesson_data {
+.trainer .lesson_data,
+.trainer .work_history {
   display: block;
   border: 1px solid #cccccc;
   position: relative;
@@ -17,9 +18,11 @@ section {
   margin: 0 auto;
   font-size: 2em;
   overflow: hidden; }
-  .trainer .lesson_data.idle .container {
+  .trainer .lesson_data.idle .container,
+  .trainer .work_history.idle .container {
     opacity: 0; }
-  .trainer .lesson_data .paused {
+  .trainer .lesson_data .paused,
+  .trainer .work_history .paused {
     display: none;
     position: absolute;
     left: 0;
@@ -30,24 +33,31 @@ section {
     line-height: 50px;
     width: 100%;
     font-size: 0.8em; }
-  .trainer .lesson_data.idle .paused {
+  .trainer .lesson_data.idle .paused,
+  .trainer .work_history.idle .paused {
     display: block; }
-  .trainer .lesson_data .container {
+  .trainer .lesson_data .container,
+  .trainer .work_history .container {
     width: 9999px;
     position: relative;
     height: 50px;
     padding: 10px; }
-  .trainer .lesson_data .gesture {
+  .trainer .lesson_data .gesture,
+  .trainer .work_history .gesture {
     margin-right: 20px;
     float: left;
     text-align: center;
     padding: 5px 10px;
+    width: 100px;
     border-radius: 15px; }
-    .trainer .lesson_data .gesture.active {
+    .trainer .lesson_data .gesture.active,
+    .trainer .work_history .gesture.active {
       background: #EEE; }
-    .trainer .lesson_data .gesture.correct {
+    .trainer .lesson_data .gesture.correct,
+    .trainer .work_history .gesture.correct {
       color: #009900; }
-    .trainer .lesson_data .gesture.incorrect {
+    .trainer .lesson_data .gesture.incorrect,
+    .trainer .work_history .gesture.incorrect {
       color: #990000; }
 .trainer .work_data {
   display: block;
