@@ -9,64 +9,94 @@
   <body>
   <div id="wrapper">
     <div id="content">
-      <h1>Leap Gesture Trainer for BetterTouchTool</h1>
-      <p>If you haven't already, download this <a href="btt_leap_preset">BTT preset</a> file and import it in your BTT settings window. </p>
+      <section id="intro">
+        <h1>Leap Gesture Trainer for BetterTouchTool</h1>
+        <h2>Introduction</h2>
+        <p>The Leap Motion controller is a small computer device that allows the user to control his computer using your hands and fingers. The idea behind this device is great, and is likely influenced by movies like Minority Report, where Tom Cruise uses a pair of gloves to quickly manipulate windows and other objects.</p>
+        <p>In practice, however, Leap Motion falls a bit short. This is expected of any new technology, but the bottom line is that we need some extra work to really get Leap Motion to do what we want. Here's where Better Touch Tool comes in. Better Touch Tool has been around for years, and was primarily designed to allow Mac users to use the full potential of their multitouch trackpads and magic mouse. Recently, BTT also added support for Leap Motion, which is exactly what users felt was missing. With BTT, you can assign gestures to different actions on your computer.</p>
+        <p>However, one problem remains...with any new technology requires new skills that one must master before the technology is beneficial. And while most people are used to touch gestures such as tapping, dragging, scrolling, etc., touchless gestures are still new to most people. This is where this tool comes in.</p>
+        <p>My goal is to provide a simple tool where users can learn the different gestures used by BTT without having to assign them to real actions. With enough practice, each gesture will become second nature and the user will be able to perform them at will. This is comparable to learn how to touch type. Once you're proficient, you don't have to look at your hands or think about what you're doing in order to perform a gesture. This brings speed and proficience to hand gestures, which I believe is a requirement if we want to improve our productivity using the Leap Motion controller.</p>
+        <h2>Setup</h2>
+        <p>What you'll need:</p>
+        <ul>
+        <li>Leap Motion controller - get one at <a href="http://leapmotion.com/">leapmotion.com</a></li>
+        <li><a href="https://www.leapmotion.com/setup">Leap Motion software</a></li>
+        <li><a href="http://www.boastr.de/">BetterTouchTool app</a></li>
+        <li><a href="btt_leap_preset">BTT Leap Trainer gesture preset</a></li>
+        </ul>
+        <p>Once you have installed the required software and downloaded the BTT Leap Trainer preset, open BTT's settings window, and import the preset. It will load all of BTT gestures and assign keyboard actions to them. These key sequences will be use by this tool to match different gestures. A full list of gestures can be seen below.</p>
+      </section>
       <section id="legend" class="collapsed">
         <h5 class="title">Gesture Notations (click to show/hide)</h5>
-        <div class="column">
-        <span class="notation">U</span>Single Finger Up<br />
-        <span class="notation">D</span>Single Finger Down<br />
-        <span class="notation">L</span>Single Finger Left<br />
-        <span class="notation">R</span>Single Finger Right<br />
-        </div>
-        <div class="column">
-        <span class="notation">2U</span>Two Fingers Up<br />
-        <span class="notation">2D</span>Two Fingers Down<br />
-        <span class="notation">2L</span>Two Fingers Left<br />
-        <span class="notation">2R</span>Two Fingers Right<br />
-        </div>
-        <div class="column column_last">
-        <span class="notation">3U</span>Three Fingers Up<br />
-        <span class="notation">3D</span>Three Fingers Down<br />
-        <span class="notation">3L</span>Three Fingers Left<br />
-        <span class="notation">3R</span>Three Fingers Right<br />
-        </div>
-        <div class="column">
-        <span class="notation">5U</span>Five Fingers Up<br />
-        <span class="notation">5D</span>Five Fingers Down<br />
-        <span class="notation">5L</span>Five Fingers Left<br />
-        <span class="notation">5R</span>Five Fingers Right<br />
-        </div>
-        <div class="column">
-        <span class="notation">CW</span>Single Finger Small Circle (Clockwise)<br />
-        <span class="notation">CCW</span>Single Finger Small Circle (Counter Clockwise)<br />
-        <span class="notation">2CW</span>Two Fingers Small Circle (Clockwise)<br />
-        <span class="notation">2CCW</span>Two Fingers Small Circle (Counter Clockwise)<br />
-        </div>
-        <div class="column column_last">
-        <span class="notation">T</span>Single Finger Tap<br />
-        <span class="notation">2T</span>Two Fingers Tap<br />
-        <span class="notation">3T</span>Three Fingers Tap<br />
-        <span class="notation">5T</span>Five Fingers Tap<br />
-        <span class="notation">CLP</span>Two Hand Clap<br />
+        <div class="column3">
+          <div class="column">
+          <span class="notation">U</span>Single Finger Up<br />
+          <span class="notation">D</span>Single Finger Down<br />
+          <span class="notation">L</span>Single Finger Left<br />
+          <span class="notation">R</span>Single Finger Right<br />
+          </div>
+          <div class="column">
+          <span class="notation">2U</span>Two Fingers Up<br />
+          <span class="notation">2D</span>Two Fingers Down<br />
+          <span class="notation">2L</span>Two Fingers Left<br />
+          <span class="notation">2R</span>Two Fingers Right<br />
+          </div>
+          <div class="column column_last">
+          <span class="notation">3U</span>Three Fingers Up<br />
+          <span class="notation">3D</span>Three Fingers Down<br />
+          <span class="notation">3L</span>Three Fingers Left<br />
+          <span class="notation">3R</span>Three Fingers Right<br />
+          </div>
+          <div class="column">
+          <span class="notation">5U</span>Five Fingers Up<br />
+          <span class="notation">5D</span>Five Fingers Down<br />
+          <span class="notation">5L</span>Five Fingers Left<br />
+          <span class="notation">5R</span>Five Fingers Right<br />
+          </div>
+          <div class="column">
+          <span class="notation">CW</span>Single Finger Small Circle (Clockwise)<br />
+          <span class="notation">CCW</span>Single Finger Small Circle (Counter Clockwise)<br />
+          <span class="notation">2CW</span>Two Fingers Small Circle (Clockwise)<br />
+          <span class="notation">2CCW</span>Two Fingers Small Circle (Counter Clockwise)<br />
+          </div>
+          <div class="column column_last">
+          <span class="notation">T</span>Single Finger Tap<br />
+          <span class="notation">2T</span>Two Fingers Tap<br />
+          <span class="notation">3T</span>Three Fingers Tap<br />
+          <span class="notation">5T</span>Five Fingers Tap<br />
+          <span class="notation">CLP</span>Two Hand Clap<br />
+          </div>
         </div>
       </section>
+      <section id="instructions">
+        <h2>Instructions</h2>
+        <p>For each lesson, click the <strong>Start</strong> button to begin the lesson. Then look at the <strong>Lesson Gestures</strong> for the current gesture you'll need to perform. As you perform a gesture, the next gesture will move intro place and the previous gesture will move left. The current gesture is always highlighted, and previous gestures will turn green or red depending on whether you got the gesture correctly.</p>
+      </section>
       <section class="trainer" id="test_lesson">
-        <div class="stats">
-          <div class="correct"><label>Correct:</label><span class="data">0</span></div>
-          <div class="incorrect"><label>Incorrect:</label><span class="data">0</span></div>
-          <div class="accuracy"><label>Accuracy:</label><span class="data"></span></div>
-        </div>
-        <div class="lesson">
-          <h2>Click the work box below then start doing gestures to check your accuracy</h2>
-          <h3>Lesson Gestures:</h3>
-          <div class="lesson_data"></div>
-        </div>
-        <div class="work">
-          <h3>Your Gestures:</h3>
-          <div class="work_history"></div>
-          <!-- <input class="work_data" type="text" />-->
-        </div>
+        <article>
+          <div class="lesson">
+            <h2>Test Lesson - All Gestures</h2>
+            <h3>Lesson Gestures:</h3>
+            <div class="lesson_data"></div>
+          </div>
+          <div class="work">
+            <h3>Your Gestures:</h3>
+            <div class="work_history"></div>
+            <!-- <input class="work_data" type="text" />-->
+          </div>
+        </article>
+        <aside>
+          <div class="controls block">
+            <h3>Controls</h3>
+            <button class="trainer_button play">Play</button>
+          </div>
+          <div class="stats block">
+            <h3>Stats</h3>
+            <div class="correct"><label>Correct:</label><span class="data">0</span></div>
+            <div class="incorrect"><label>Incorrect:</label><span class="data">0</span></div>
+            <div class="accuracy"><label>Accuracy:</label><span class="data"></span></div>
+          </div>
+        </aside>
     </section>
     </div>
   </div>

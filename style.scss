@@ -6,10 +6,31 @@ body {
   color:#333;
   background:#eee;
 }
+#wrapper {
+  width:100%;
+}
+#content {
+  padding:1em 5%;
+}
 section {
   float: left;
+  width:100%;
+  padding:2em 0;
+  border-top:$border_style;
+}
+#intro {
+  border-top:none;
 }
 .trainer {
+  aside {
+    float:right;
+    width:35%;
+  }
+  article {
+    float:left;
+    width:60%;
+    margin-right:5%;
+  }
   .work {
     width: 100%;
   }
@@ -17,10 +38,11 @@ section {
   .work_history {
     display: block;
     border: $border_style;
+    border-radius: 5px;
     background:#f5f5f5;
     position:relative;
     height: 70px;
-    width:800px;
+    width:100%;
     margin: 0 auto;
     font-size:2em;
     overflow:hidden;
@@ -56,7 +78,13 @@ section {
       width:100px;
       border-radius:15px;
       &.active {
-        background:#EEE;
+        background: linear-gradient(#ffe788, #ffce38);
+        background:linear-gradient(#ffe788, #ffe788);
+        background-color:#ffcc00;
+        border: 1px solid #dba500;
+      }
+      &.previous {
+        color: #c0c0c0;
       }
       &.correct {
         color: #009900;
@@ -76,44 +104,61 @@ section {
     text-align:center;
     font-size:2em;
   }
+  .block {
+    border:$border_style;
+    padding:15px;
+    margin-bottom:1.5em;
+    h3 {
+      margin:0 0 0.5em;
+    }
+  }
   .stats {
-    float:right;
     label {
       margin-right:10px;
     }
   }
+  .controls {
+    button {
+      border:$border_style;
+      font-size:1.2em;
+      padding:7px 15px;
+      background:#ddd;
+    }
+  }
 }
 #legend {
-  &.collapsed {
-    height: 20px;
-    overflow: hidden;
+  &.collapsed .column3 {
+    display:none;
   }
   .title {
     cursor: pointer;
     margin:0 0 10px 0;
   }
-  .column {
-    float: left;
-    width: 30%;
-    margin-right: 5%;
-    margin-bottom:1em;
-    font-size:12pt;
-    line-height:35px;
-    .notation {
-      display:inline-block;
-      width:50px;
-      height:20px;
-      line-height:20px;
-      text-align:center;
-      border:$border_style;
-      background:#f0f0f0;
-      margin-right:10px;
-      padding:5px;
-      border-radius: 3px;
+  .column3 {
+    float:left;
+    .column {
+      float: left;
+      width: 30%;
+      margin-right: 5%;
+      margin-bottom:1em;
+      font-size:12pt;
+      line-height:35px;
+      .notation {
+        display:inline-block;
+        width:50px;
+        height:20px;
+        line-height:20px;
+        text-align:center;
+        border:$border_style;
+        background:#f0f0f0;
+        margin-right:10px;
+        padding:5px;
+        border-radius: 3px;
+      }
     }
-  }
-  .column_last {
-    margin-right: 0;
+    .column_last {
+      margin-right: 0;
+    }
   }
 }
 

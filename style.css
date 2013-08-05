@@ -4,19 +4,39 @@ body {
   color: #333;
   background: #eee; }
 
-section {
-  float: left; }
+#wrapper {
+  width: 100%; }
 
+#content {
+  padding: 1em 5%; }
+
+section {
+  float: left;
+  width: 100%;
+  padding: 2em 0;
+  border-top: 1px solid #cccccc; }
+
+#intro {
+  border-top: none; }
+
+.trainer aside {
+  float: right;
+  width: 35%; }
+.trainer article {
+  float: left;
+  width: 60%;
+  margin-right: 5%; }
 .trainer .work {
   width: 100%; }
 .trainer .lesson_data,
 .trainer .work_history {
   display: block;
   border: 1px solid #cccccc;
+  border-radius: 5px;
   background: #f5f5f5;
   position: relative;
   height: 70px;
-  width: 800px;
+  width: 100%;
   margin: 0 auto;
   font-size: 2em;
   overflow: hidden; }
@@ -54,7 +74,13 @@ section {
     border-radius: 15px; }
     .trainer .lesson_data .gesture.active,
     .trainer .work_history .gesture.active {
-      background: #EEE; }
+      background: linear-gradient(#ffe788, #ffce38);
+      background: linear-gradient(#ffe788, #ffe788);
+      background-color: #ffcc00;
+      border: 1px solid #dba500; }
+    .trainer .lesson_data .gesture.previous,
+    .trainer .work_history .gesture.previous {
+      color: #c0c0c0; }
     .trainer .lesson_data .gesture.correct,
     .trainer .work_history .gesture.correct {
       color: #009900; }
@@ -70,36 +96,46 @@ section {
   margin: 10px auto;
   text-align: center;
   font-size: 2em; }
-.trainer .stats {
-  float: right; }
-  .trainer .stats label {
-    margin-right: 10px; }
+.trainer .block {
+  border: 1px solid #cccccc;
+  padding: 15px;
+  margin-bottom: 1.5em; }
+  .trainer .block h3 {
+    margin: 0 0 0.5em; }
+.trainer .stats label {
+  margin-right: 10px; }
+.trainer .controls button {
+  border: 1px solid #cccccc;
+  font-size: 1.2em;
+  padding: 7px 15px;
+  background: #ddd; }
 
-#legend.collapsed {
-  height: 20px;
-  overflow: hidden; }
+#legend.collapsed .column3 {
+  display: none; }
 #legend .title {
   cursor: pointer;
   margin: 0 0 10px 0; }
-#legend .column {
-  float: left;
-  width: 30%;
-  margin-right: 5%;
-  margin-bottom: 1em;
-  font-size: 12pt;
-  line-height: 35px; }
-  #legend .column .notation {
-    display: inline-block;
-    width: 50px;
-    height: 20px;
-    line-height: 20px;
-    text-align: center;
-    border: 1px solid #cccccc;
-    background: #f0f0f0;
-    margin-right: 10px;
-    padding: 5px;
-    border-radius: 3px; }
-#legend .column_last {
-  margin-right: 0; }
+#legend .column3 {
+  float: left; }
+  #legend .column3 .column {
+    float: left;
+    width: 30%;
+    margin-right: 5%;
+    margin-bottom: 1em;
+    font-size: 12pt;
+    line-height: 35px; }
+    #legend .column3 .column .notation {
+      display: inline-block;
+      width: 50px;
+      height: 20px;
+      line-height: 20px;
+      text-align: center;
+      border: 1px solid #cccccc;
+      background: #f0f0f0;
+      margin-right: 10px;
+      padding: 5px;
+      border-radius: 3px; }
+  #legend .column3 .column_last {
+    margin-right: 0; }
 
 /*# sourceMappingURL=style.css.map */

@@ -61,6 +61,8 @@
           var code = (e.keyCode ? e.keyCode : e.which);
           var $cur_gesture = $trainer.find(settings.lesson).find('.gesture.active').eq(0);
           var $next_gesture = $cur_gesture.next();
+          var $cur_answer;
+          var correct = false;
 
           if(String.fromCharCode(code) !== ' ') {
             $doc.data('gesture', $answer += String.fromCharCode(code));
@@ -72,16 +74,21 @@
             console.log($answer, $cur_gesture.html());
             console.log(typeof($answer), typeof($cur_gesture.html()));
             if ($answer === $cur_gesture.html()) {
-              $cur_gesture.addClass('correct')
+              $cur_gesture.addClass('previous')
+              correct = true;
               trainer.correct++;
               trainer.total++;
             }
             else {
-              $cur_gesture.addClass('incorrect')
+              $cur_gesture.addClass('previous')
+              correct = false;
               trainer.incorrect++;
               trainer.total++;
             }
             $trainer.find(settings.work_history + ' .container').append('<span class="gesture">'+$answer.trim(' ')+'</span>');
+            $cur_answer = $trainer.find(settings.work_history + ' .container .gesture').last();
+            console.log($cur_answer);
+            $cur_answer.addClass(correct ? 'correct' : 'incorrect');
             $doc.data('gesture','');
           }
           trainer.updateLesson();
