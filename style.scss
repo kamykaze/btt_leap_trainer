@@ -123,6 +123,10 @@ section {
       font-size:1.2em;
       padding:7px 15px;
       background:#ddd;
+      width:200px;
+      &.hidden {
+        display: none;
+      }
     }
   }
 }

@@ -108,7 +108,10 @@ section {
   border: 1px solid #cccccc;
   font-size: 1.2em;
   padding: 7px 15px;
-  background: #ddd; }
+  background: #ddd;
+  width: 200px; }
+  .trainer .controls button.hidden {
+    display: none; }
 
 #legend.collapsed .column3 {
   display: none; }

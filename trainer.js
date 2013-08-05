@@ -15,7 +15,7 @@
             ],
             number_of_gestures: 50,   // number of gestures to be generated in the lesson
             lesson: '.lesson_data',   // lesson data container
-            //work: '.work_data',       // work data container (must be an input field)
+            controls: '.controls',
             work_history: '.work_history',       // work data container (must be an input field)
             stats: '.stats'           // stats data container
         }, options );
@@ -39,7 +39,7 @@
           for (var i = 0; i < n; i++) {
             result += '<span class="gesture">'+ this.randomGesture() + "</span>";
           };
-          result += '</div><div class="paused">Paused (click box below to reactivate)</div>';
+          result += '</div><div class="paused">Paused (click PLAY to reactivate)</div>';
 
           $trainer.find(settings.lesson).html(result);
           $trainer.find(settings.lesson).find('.gesture').first().addClass('active');
@@ -49,13 +49,22 @@
 
         this.playLesson = function() {
           $trainer.find(settings.lesson).removeClass('idle');
+          $trainer.addClass('active');
+          $trainer.find(settings.controls + ' .play').addClass('hidden');
+          $trainer.find(settings.controls + ' .pause').removeClass('hidden');
         }
 
         this.pauseLesson = function() {
           $trainer.find(settings.lesson).addClass('idle');
+          $trainer.removeClass('active');
+          $trainer.find(settings.controls + ' .pause').addClass('hidden');
+          $trainer.find(settings.controls + ' .play').removeClass('hidden');
         }
 
         this.checkAnswer = function(e) {
+          if (!$trainer.hasClass('active')) {
+            return;
+          }
           var $doc = $(this);
           var $answer = $(this).data('gesture') ? $(this).data('gesture') : '';
           var code = (e.keyCode ? e.keyCode : e.which);
@@ -121,10 +130,8 @@
           trainer.getLesson(settings.number_of_gestures);
           trainer.updateLesson();
 
-          // TODO: add resume/pause button
-          //$trainer.find(settings.work).on('focus', trainer.playLesson);
-          //$trainer.find(settings.work).on('blur', trainer.pauseLesson);
-          //$trainer.find(settings.work).on('keyup', trainer.checkAnswer);
+          $trainer.find(settings.controls + ' .play').on('click', trainer.playLesson);
+          $trainer.find(settings.controls + ' .pause').on('click', trainer.pauseLesson);
           $(document).on('keypress', trainer.checkAnswer);
         }
 
